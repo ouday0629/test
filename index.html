@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏人物查找系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="输入人物名称...">
+            <button id="searchButton">搜索</button>
+        </div>
+        
+        <div id="loadingIndicator" style="display: none;">
+            <p>加载中...</p>
+        </div>
+        
+        <div class="character-display">
+            <div class="character-info">
+                <h2 id="characterName"></h2>
+                <div class="image-section">
+                    <img id="characterImage" alt="角色图片">
+                </div>
+            </div>
+            
+            <div class="model-section">
+                <div class="model-container">
+                    <h3>站立模式</h3>
+                    <model-viewer id="standingModel" 
+                        camera-controls
+                        auto-rotate
+                        shadow-intensity="1"
+                        exposure="1"
+                        environment-image="neutral"
+                        camera-orbit="0deg 75deg 105%"
+                        min-camera-orbit="auto auto 50%"
+                        max-camera-orbit="auto auto 200%"
+                        interaction-prompt="none">
+                    </model-viewer>
+                </div>
+                <div class="model-container">
+                    <h3>移动模式</h3>
+                    <model-viewer id="movingModel"
+                        camera-controls
+                        auto-rotate
+                        animation-name="*"
+                        autoplay
+                        shadow-intensity="1"
+                        exposure="1"
+                        environment-image="neutral"
+                        camera-orbit="0deg 75deg 105%"
+                        min-camera-orbit="auto auto 50%"
+                        max-camera-orbit="auto auto 200%"
+                        interaction-prompt="none">
+                    </model-viewer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
